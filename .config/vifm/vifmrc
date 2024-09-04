@@ -563,3 +563,14 @@ nnoremap <c-u> <c-w>x
 " ------------------------------------------------------------------------------
 
 " https://github.com/cirala/vifm_devicons
+
+" My Commands
+command create :
+\|  let $last_char = expand(system("str=\"%a\"; echo \"${str: -1}\""))
+\|  if $last_char == "/"
+\|    mkdir "%a"
+\|  else
+\|    touch "%a"
+\|  endif
+
+nnoremap a :create<space>
